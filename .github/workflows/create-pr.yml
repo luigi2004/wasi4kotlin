@@ -1,0 +1,33 @@
+name: Create PR with prepared files
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Example: write a single file (repeat for each file or replace with a script that creates many)
+      - name: Create example file
+        run: |
+          cat > README.md <<'EOF'
+          # wasi4kotlin
+          Quickstart: compile .wat to .wasm with wat2wasm and run Gradle examples.
+          EOF
+
+      # Commit & create pull request using peter-evans action
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Init: Add JVM examples and project skeleton for WASI + WIT support"
+          branch: init/wasi-wit-jvm-examples
+          title: "Init: Add JVM examples and project skeleton for WASI + WIT support"
+          body: |
+            This PR adds an initial project skeleton, Kotlin and Java JVM examples that embed a Wasm runtime (wasmtime-java), basic unit tests, documentation, and a CI workflow.

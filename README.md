@@ -1,3 +1,4 @@
+```markdown
 # wasi4kotlin
 
 This repository collects examples and guidance for using WASI and WebAssembly Interface Types (WIT) from Kotlin and Java (JVM).
@@ -22,3 +23,4 @@ Notes
 - The examples use wasmtime-java as the embedded runtime. The Gradle files reference io.github.kawamuray:wasmtime:0.40.0 as an example; please verify the latest stable version when updating dependencies.
 
 See ISSUE.md for roadmap and next tasks.
+```

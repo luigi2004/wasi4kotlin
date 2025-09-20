@@ -1,3 +1,4 @@
+```markdown
 # Add WASI + WIT (WebAssembly Interface Types) support for Kotlin & Java
 
 ## Summary
@@ -34,3 +35,4 @@ Add support for running and interacting with WebAssembly modules from Kotlin and
 - [ ] Add CI (GitHub Actions) to run JVM tests
 - [ ] Add documentation for running wasm examples on popular runtimes (wasmtime, wasmer)
 - [ ] Add issue templates and contribution notes
+```

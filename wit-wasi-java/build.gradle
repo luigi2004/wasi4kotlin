@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // wasmtime-java coordinate (verify latest version)
+    implementation 'io.github.kawamuray:wasmtime:0.40.0'
+    testImplementation 'junit:junit:4.13.2'
+}
