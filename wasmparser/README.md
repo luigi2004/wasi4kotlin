@@ -13,6 +13,7 @@ This library provides an event-driven parser for WebAssembly binary files. It re
 - **Full section support**: Parses all standard WebAssembly sections (Type, Import, Function, Table, Memory, Global, Export, Start, Element, Code, Data, DataCount, Custom)
 - **Type-safe**: Uses sealed classes and data classes for type safety
 - **Idiomatic Kotlin**: Written in idiomatic Kotlin with immutable data structures
+- **Module validation**: Built-in validator to check module well-formedness
 
 ## Usage
 
@@ -105,6 +106,26 @@ fun analyzeModule(wasmBytes: ByteArray) {
 }
 ```
 
+### Validating Modules
+
+```kotlin
+import io.github.wasmparser.*
+
+fun validateModule(wasmBytes: ByteArray) {
+    val validator = Validator()
+    val result = validator.validate(wasmBytes)
+    
+    if (result.isValid) {
+        println("✓ Module is valid")
+    } else {
+        println("✗ Module is invalid:")
+        result.errors.forEach { error ->
+            println("  - $error")
+        }
+    }
+}
+```
+
 ## API Overview
 
 ### Core Classes
@@ -133,6 +154,10 @@ fun analyzeModule(wasmBytes: ByteArray) {
   - Supports LEB128 encoding (variable-length integers)
   - Reads primitive types (i32, i64, f32, f64)
   - Reads WebAssembly-specific types (ValType, Limits, etc.)
+
+- **`Validator`**: Module validator for checking well-formedness
+  - `fun validate(data: ByteArray): ValidationResult` - Validates a module and returns errors if any
+  - Checks for duplicate exports, mismatched function/code sections, invalid limits, etc.
 
 ### Type Definitions
 
