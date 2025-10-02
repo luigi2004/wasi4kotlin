@@ -3,6 +3,13 @@
 
 This repository collects examples and guidance for using WASI and WebAssembly Interface Types (WIT) from Kotlin and Java (JVM).
 
+## Modules
+
+- **wasmparser**: A Kotlin implementation of a WebAssembly binary parser, inspired by the Rust [wasmparser](https://github.com/bytecodealliance/wasm-tools/tree/main/crates/wasmparser) crate. This module provides event-driven parsing of WebAssembly binary files with low memory overhead. See [wasmparser/README.md](wasmparser/README.md) for details.
+- **wit-wasi-kotlin**: Kotlin library for working with WebAssembly modules
+- **wit-wasi-java**: Java library for working with WebAssembly modules
+- **examples**: Example projects demonstrating WebAssembly usage
+
 Quickstart
 
 1. Build the example wasm modules (requires wat2wasm):
