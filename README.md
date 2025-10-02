@@ -9,6 +9,9 @@ This repository collects examples and guidance for using WASI and WebAssembly In
 - **wit-wasi-kotlin**: Kotlin library for working with WebAssembly modules
 - **wit-wasi-java**: Java library for working with WebAssembly modules
 - **examples**: Example projects demonstrating WebAssembly usage
+  - **kotlin-jvm**: Basic Kotlin/JVM example using wasmtime-java
+  - **java-jvm**: Basic Java example using wasmtime-java
+  - **wasmparser-integration**: Example showing module analysis using wasmparser
 
 Quickstart
 
@@ -24,6 +27,9 @@ Quickstart
 
 4. Run the Java JVM example (after compiling .wasm as above, optional):
    - ./gradlew :wit-wasi-java:test
+
+5. Run the wasmparser integration example:
+   - ./gradlew :examples:wasmparser-integration:run
 
 Notes
 - This repository includes .wat sources (text format). Compile to .wasm using wat2wasm from the WebAssembly Binary Toolkit (wabt).
